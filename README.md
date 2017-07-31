@@ -1,1 +1,3 @@
-# admatrix_admin_system_training
+# Tutorials
+
+1. [JavaScript](javascript.md)
