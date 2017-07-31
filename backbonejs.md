@@ -13,7 +13,7 @@ Please do not copy and paste them and write them yourself.
 ### The libraries you must use
 
 * [Backbone.js](http://backbonejs.org/) / [annotated source code of backbonejs](http://backbonejs.org/docs/backbone.html)
-* [Underscore.js](http://underscorejs.org / [annotated source code of underscore](http://underscorejs.org/docs/underscore.html))
+* [Underscore.js](http://underscorejs.org) / [annotated source code of underscore](http://underscorejs.org/docs/underscore.html))
 * [jQuery](https://jquery.com/)
 * [Bootstrap](http://getbootstrap.com/)
 
@@ -63,5 +63,3 @@ var bla = $('#js_name').val();
 //Set
 $('#js_name').val(bla);
 ```
-
-### Reference
