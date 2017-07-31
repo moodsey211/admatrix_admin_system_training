@@ -63,5 +63,3 @@ var bla = $('#js_name').val();
 //Set
 $('#js_name').val(bla);
 ```
-
-### Reference
