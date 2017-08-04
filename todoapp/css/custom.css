@@ -3,3 +3,7 @@ body {
     color: #636E7B;
     background-color: #428BCA;
 }
+
+.list-group .list-group-item div div h4 {
+    text-decoration: line-through;
+}
