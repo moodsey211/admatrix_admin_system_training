@@ -20,7 +20,7 @@ const webpackCommon = {
                 }
             },
             {
-                test: /\.jst$/,
+                test: /\.tpl$/,
                 loader: 'underscore-template-loader'
             }
         ]
@@ -33,7 +33,8 @@ const webpackCommon = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            _: 'underscore'
+            _: 'underscore',
+            jQuery: 'jquery'
         }),
         new CopyWebpackPlugin([{
             from: 'src/html', to: path.join(__dirname, 'public')
