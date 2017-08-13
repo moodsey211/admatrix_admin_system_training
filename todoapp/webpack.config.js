@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const webpackCommon = {
     entry: {
-        app: [path.join(__dirname, 'src/scripts/app')]
+        app: [path.join(__dirname, 'src/scripts/app.js')]
     },
     module: {
         loaders: [
@@ -31,6 +31,14 @@ const webpackCommon = {
         publicPath: '/'
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            }
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             _: 'underscore',

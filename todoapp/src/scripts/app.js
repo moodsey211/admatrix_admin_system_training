@@ -1,16 +1,15 @@
 import 'bootstrap';
-import Marionette from 'backbone.marionette';
-import TodoWidget from 'views/widgets/TodoWidget';
+import jQuery from 'jquery';
+import {Radio} from 'backbone';
+import TodoApplication from './TodoApplication';
 
-var Application = Marionette.Application.extend({
-    region: '#todo-app',
-    onStart() {
-        this.showView(new TodoWidget());
+var Application = {
+    instance: new TodoApplication(),
+    channels: {
+        filter: Radio.channel('todo-app-filter-channel')
     }
-});
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-    const app = new Application();
-
-    app.start();
+jQuery(document).ready(function() {
+    Application.instance.start();
 });
