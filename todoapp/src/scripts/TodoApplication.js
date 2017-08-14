@@ -26,6 +26,7 @@ export default Marionette.Application.extend({
             controller: ctl
         });*/
 
+        this.todoList.fetch();
         Backbone.history.start();
     }
 });
