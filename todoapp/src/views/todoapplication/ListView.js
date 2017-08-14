@@ -20,6 +20,26 @@ export default Marionette.View.extend({
         'click @ui.allCheckbox': 'markAllItem'
     },
 
+    collectionEvents: {
+        all: 'toggleDefaultStatus'
+    },
+
+    initialize: function() {
+        this.listenTo(window.Application.channels.filter.request('filterState'), 'change:filter', this.render, this);
+    },
+
+    toggleDefaultStatus: function() {
+        var allCompleted = this.collection.reduce(function(left, right) {
+            return left && right.isCompleted();
+        }, true);
+
+        this.ui.allCheckbox.removeClass('active');
+
+        if (allCompleted) {
+            this.ui.allCheckbox.addClass('active');
+        }
+    },
+
     onRender: function() {
         this.showChildView('listBody', new ListBodyView({
             collection: this.collection

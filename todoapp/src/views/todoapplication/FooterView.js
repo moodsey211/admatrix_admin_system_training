@@ -38,8 +38,8 @@ export default Marionette.View.extend({
     },
 
     updateFilterSelection: function() {
-        this.ui.filters.removeClass('selected');
-        this.ui[window.Application.channels.filter.request('filterState').get('filter')].addClass('selected');
+        this.ui.filters.removeClass('active');
+        this.ui[window.Application.channels.filter.request('filterState').get('filter')].addClass('active');
     },
 
     clearCompletedItems: function() {
