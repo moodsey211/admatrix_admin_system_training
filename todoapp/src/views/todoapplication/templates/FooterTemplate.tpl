@@ -8,8 +8,8 @@
                 Clear <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="#">All Completed Items</a></li>
-                <li><a href="#">All Items</a></li>
+                <li><a class="clear-completed-items" href="#">All Completed Items</a></li>
+                <li><a class="clear-all-items" href="#">All Items</a></li>
             </ul>
         </li>
     </ul>

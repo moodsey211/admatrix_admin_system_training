@@ -8,7 +8,14 @@ export default Marionette.View.extend({
         filters: '.filters',
         active: '.all-active',
         completed: '.all-completed',
-        all: '.all-entries'
+        all: '.all-entries',
+        clearAll: 'a.clear-all-items',
+        clearCompleted: 'a.clear-completed-items'
+    },
+
+    events: {
+        'click @ui.clearAll': 'clearAllItems',
+        'click @ui.clearCompleted': 'clearCompletedItems'
     },
 
     collectionEvents: {
@@ -34,4 +41,16 @@ export default Marionette.View.extend({
         this.ui.filters.removeClass('selected');
         this.ui[window.Application.channels.filter.request('filterState').get('filter')].addClass('selected');
     },
+
+    clearCompletedItems: function() {
+        this.collection.each(function(item) {
+            if (item.isCompleted()) {
+                item.destroy();
+            }
+        });
+    },
+
+    clearAllItems: function() {
+        this.collection.reset();
+    }
 });
