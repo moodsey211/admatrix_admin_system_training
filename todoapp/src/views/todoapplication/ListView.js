@@ -21,6 +21,7 @@ export default Marionette.View.extend({
     },
 
     collectionEvents: {
+        'change:completed': 'render',
         all: 'toggleDefaultStatus'
     },
 
@@ -44,9 +45,11 @@ export default Marionette.View.extend({
         this.showChildView('listBody', new ListBodyView({
             collection: this.collection
         }));
+
+        this.toggleDefaultStatus();
     },
 
-    markAllItem: function() {
+    markAllItem: function(e) {
         let completed = !this.ui.allCheckbox.hasClass('active');
 
         this.collection.each(function(item) {

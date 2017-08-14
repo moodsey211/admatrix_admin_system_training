@@ -26,6 +26,10 @@ export default Marionette.View.extend({
         this.listenTo(window.Application.channels.filter.request('filterState'), 'change:filter', this.updateFilterSelection, this);
     },
 
+    onRender: function() {
+        this.updateFilterSelection();
+    },
+
     serializeData: function() {
         let active = this.collection.getActive().length;
         let total = this.collection.length;
